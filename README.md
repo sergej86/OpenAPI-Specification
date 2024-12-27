@@ -2,7 +2,21 @@
 
 ![Build Status](https://github.com/OAI/OpenAPI-Specification/workflows/validate-markdown/badge.svg) [![Issue triagers](https://www.codetriage.com/oai/openapi-specification/badges/users.svg)](https://www.codetriage.com/oai/openapi-specification)
 
-![](https://avatars3.githubusercontent.com/u/16343502?v=3&s=200)
+!import { fetch as undiciFetch, ProxyAgent } from 'undici';
+
+const myFetch = (url, options) => {
+  return undiciFetch(url, {
+    ...options,
+    dispatcher: new ProxyAgent(<your_proxy_url>)
+  })
+}
+
+const octokit = new Octokit({
+  request: {
+     fetch: myFetch
+  },
+});[]![17353372908538084269126760540382](https://github.com/user-attachments/assets/eef29214-c784-4036-a8ff-2418c06c41dc)
+(https://avatars3.githubusercontent.com/u/16343502?v=3&s=200)
 
 
 The OpenAPI Specification is a community-driven open specification within the [OpenAPI Initiative](https://www.openapis.org/), a Linux Foundation Collaborative Project.
